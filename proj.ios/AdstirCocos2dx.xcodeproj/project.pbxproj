@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FADC44AB176EA82000B2D5ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC44AA176EA82000B2D5ED /* Foundation.framework */; };
-		FADC44C5176EA84500B2D5ED /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC44C2176EA84500B2D5ED /* libGoogleAdMobAds.a */; };
-		FADC44C6176EA84500B2D5ED /* AdsAdmob.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC44C4176EA84500B2D5ED /* AdsAdmob.m */; };
+		FADC44C5176EA84500B2D5ED /* libAdstirWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC44C2176EA84500B2D5ED /* libAdstirWebView.a */; };
+		FADC44C6176EA84500B2D5ED /* AdstirCocos2dx.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC44C4176EA84500B2D5ED /* AdstirCocos2dx.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,21 +25,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FADC44A7176EA82000B2D5ED /* libPluginAdmob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPluginAdmob.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FADC44A7176EA82000B2D5ED /* libAdstirCocos2dx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAdstirCocos2dx.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADC44AA176EA82000B2D5ED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FADC44B9176EA84500B2D5ED /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
-		FADC44BA176EA84500B2D5ED /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
-		FADC44BB176EA84500B2D5ED /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
-		FADC44BC176EA84500B2D5ED /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
-		FADC44BD176EA84500B2D5ED /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
-		FADC44BE176EA84500B2D5ED /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
-		FADC44BF176EA84500B2D5ED /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
-		FADC44C0176EA84500B2D5ED /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
-		FADC44C1176EA84500B2D5ED /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
-		FADC44C2176EA84500B2D5ED /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
-		FADC44C3176EA84500B2D5ED /* AdsAdmob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsAdmob.h; sourceTree = "<group>"; };
-		FADC44C4176EA84500B2D5ED /* AdsAdmob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsAdmob.m; sourceTree = "<group>"; };
-		FADC44C7176EA85F00B2D5ED /* PluginAdmob-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PluginAdmob-Prefix.pch"; sourceTree = "<group>"; };
+		FADC44B9176EA84500B2D5ED /* AdstirWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdstirWebView.h; sourceTree = "<group>"; };
+		FADC44C2176EA84500B2D5ED /* libAdstirWebView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdstirWebView.a; sourceTree = "<group>"; };
+		FADC44C3176EA84500B2D5ED /* AdstirCocos2dx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdstirCocos2dx.h; sourceTree = "<group>"; };
+		FADC44C4176EA84500B2D5ED /* AdstirCocos2dx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdstirCocos2dx.m; sourceTree = "<group>"; };
+		FADC44C7176EA85F00B2D5ED /* AdstirCocos2dx-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AdstirCocos2dx-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +40,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADC44AB176EA82000B2D5ED /* Foundation.framework in Frameworks */,
-				FADC44C5176EA84500B2D5ED /* libGoogleAdMobAds.a in Frameworks */,
+				FADC44C5176EA84500B2D5ED /* libAdstirWebView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,10 +50,10 @@
 		FADC449E176EA82000B2D5ED = {
 			isa = PBXGroup;
 			children = (
-				FADC44C7176EA85F00B2D5ED /* PluginAdmob-Prefix.pch */,
-				FADC44B8176EA84500B2D5ED /* Admob */,
-				FADC44C3176EA84500B2D5ED /* AdsAdmob.h */,
-				FADC44C4176EA84500B2D5ED /* AdsAdmob.m */,
+				FADC44C7176EA85F00B2D5ED /* AdstirCocos2dx-Prefix.pch */,
+				FADC44B8176EA84500B2D5ED /* adstir */,
+				FADC44C3176EA84500B2D5ED /* AdstirCocos2dx.h */,
+				FADC44C4176EA84500B2D5ED /* AdstirCocos2dx.m */,
 				FADC44A9176EA82000B2D5ED /* Frameworks */,
 				FADC44A8176EA82000B2D5ED /* Products */,
 			);
@@ -70,7 +62,7 @@
 		FADC44A8176EA82000B2D5ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FADC44A7176EA82000B2D5ED /* libPluginAdmob.a */,
+				FADC44A7176EA82000B2D5ED /* libAdstirCocos2dx.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,29 +75,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FADC44B8176EA84500B2D5ED /* Admob */ = {
+		FADC44B8176EA84500B2D5ED /* adstir */ = {
 			isa = PBXGroup;
 			children = (
-				FADC44B9176EA84500B2D5ED /* GADAdMobExtras.h */,
-				FADC44BA176EA84500B2D5ED /* GADAdNetworkExtras.h */,
-				FADC44BB176EA84500B2D5ED /* GADAdSize.h */,
-				FADC44BC176EA84500B2D5ED /* GADBannerView.h */,
-				FADC44BD176EA84500B2D5ED /* GADBannerViewDelegate.h */,
-				FADC44BE176EA84500B2D5ED /* GADInterstitial.h */,
-				FADC44BF176EA84500B2D5ED /* GADInterstitialDelegate.h */,
-				FADC44C0176EA84500B2D5ED /* GADRequest.h */,
-				FADC44C1176EA84500B2D5ED /* GADRequestError.h */,
-				FADC44C2176EA84500B2D5ED /* libGoogleAdMobAds.a */,
+				FADC44B9176EA84500B2D5ED /* AdstirWebView.h */,
+				FADC44C2176EA84500B2D5ED /* libAdstirWebView.a */,
 			);
-			path = Admob;
+			path = adstir;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FADC44A6176EA82000B2D5ED /* PluginAdmob */ = {
+		FADC44A6176EA82000B2D5ED /* AdstirCocos2dx */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FADC44B5176EA82000B2D5ED /* Build configuration list for PBXNativeTarget "PluginAdmob" */;
+			buildConfigurationList = FADC44B5176EA82000B2D5ED /* Build configuration list for PBXNativeTarget "AdstirCocos2dx" */;
 			buildPhases = (
 				FADC44A3176EA82000B2D5ED /* Sources */,
 				FADC44A4176EA82000B2D5ED /* Frameworks */,
@@ -115,9 +99,9 @@
 			);
 			dependencies = (
 			);
-			name = PluginAdmob;
-			productName = PluginAdmob;
-			productReference = FADC44A7176EA82000B2D5ED /* libPluginAdmob.a */;
+			name = AdstirCocos2dx;
+			productName = AdstirCocos2dx;
+			productReference = FADC44A7176EA82000B2D5ED /* libAdstirCocos2dx.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -129,7 +113,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "cocos2d-x";
 			};
-			buildConfigurationList = FADC44A2176EA82000B2D5ED /* Build configuration list for PBXProject "PluginAdmob" */;
+			buildConfigurationList = FADC44A2176EA82000B2D5ED /* Build configuration list for PBXProject "AdstirCocos2dx" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -141,7 +125,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FADC44A6176EA82000B2D5ED /* PluginAdmob */,
+				FADC44A6176EA82000B2D5ED /* AdstirCocos2dx */,
 			);
 		};
 /* End PBXProject section */
@@ -151,7 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADC44C6176EA84500B2D5ED /* AdsAdmob.m in Sources */,
+				FADC44C6176EA84500B2D5ED /* AdstirCocos2dx.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,14 +198,14 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
-				DSTROOT = /tmp/PluginAdmob.dst;
+				DSTROOT = /tmp/AdstirCocos2dx.dst;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PluginAdmob-Prefix.pch";
+				GCC_PREFIX_HEADER = "AdstirCocos2dx-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../protocols/platform/ios";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Admob\"",
+					"\"$(SRCROOT)/adstir\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -234,14 +218,14 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
-				DSTROOT = /tmp/PluginAdmob.dst;
+				DSTROOT = /tmp/AdstirCocos2dx.dst;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PluginAdmob-Prefix.pch";
+				GCC_PREFIX_HEADER = "AdstirCocos2dx-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../protocols/platform/ios";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Admob\"",
+					"\"$(SRCROOT)/adstir\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -252,7 +236,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FADC44A2176EA82000B2D5ED /* Build configuration list for PBXProject "PluginAdmob" */ = {
+		FADC44A2176EA82000B2D5ED /* Build configuration list for PBXProject "AdstirCocos2dx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FADC44B3176EA82000B2D5ED /* Debug */,
@@ -261,7 +245,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FADC44B5176EA82000B2D5ED /* Build configuration list for PBXNativeTarget "PluginAdmob" */ = {
+		FADC44B5176EA82000B2D5ED /* Build configuration list for PBXNativeTarget "AdstirCocos2dx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FADC44B6176EA82000B2D5ED /* Debug */,

@@ -24,30 +24,16 @@
 
 #import <Foundation/Foundation.h>
 #import "InterfaceAds.h"
-#import "GADBannerView.h"
-#import "GADBannerViewDelegate.h"
+#import "AdstirWebView.h"
 
-typedef enum {
-    kSizeBanner = 1,
-    kSizeIABMRect,
-    kSizeIABBanner,
-    kSizeIABLeaderboard,
-    kSizeSkyscraper,
-} AdmobSizeEnum;
-
-typedef enum {
-    kTypeBanner = 1,
-    kTypeFullScreen,
-} AdmobType;
-
-@interface AdsAdmob : NSObject <InterfaceAds, GADBannerViewDelegate>
+@interface AdstirCocos2dx : NSObject <InterfaceAds>
 {
 }
 
 @property BOOL debug;
-@property (copy, nonatomic) NSString* strPublishID;
-@property (assign, nonatomic) GADBannerView* bannerView;
-@property (assign, nonatomic) NSMutableArray* testDeviceIDs;
+@property (copy, nonatomic) NSString* media;
+@property (copy, nonatomic) NSString* spot;
+@property (retain, nonatomic) AdstirWebView* adstir;
 
 /**
  interfaces from InterfaceAds
@@ -60,10 +46,5 @@ typedef enum {
 - (void) setDebugMode: (BOOL) isDebugMode;
 - (NSString*) getSDKVersion;
 - (NSString*) getPluginVersion;
-
-/**
- interface for Admob SDK
- */
-- (void) addTestDevice: (NSString*) deviceID;
 
 @end
