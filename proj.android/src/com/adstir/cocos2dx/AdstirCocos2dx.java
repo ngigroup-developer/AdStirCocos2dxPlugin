@@ -95,7 +95,6 @@ public class AdstirCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 
 	private void showBannerAd(int width, int height, int pos) {
 		final int curPos = pos;
-		final int curSize = sizeEnum;
 		org.cocos2dx.plugin.PluginWrapper.runOnMainThread(new Runnable() {
 			@Override
 			public void run() {
@@ -105,15 +104,14 @@ public class AdstirCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 				}
 
 				if (adstir != null) {
-					windowManager.removeView(adView);
-					adView.destroy();
-					adView = null;
+					windowManager.removeView(adstir);
+					adstir = null;
 				}
 
-				adView = new com.ad_stir.webview.AdstirWebView(mContext,mMedia,mSpot);
+				adstir = new com.ad_stir.webview.AdstirWebView(mContext,mMedia,mSpot);
 				
-				org.cocos2dx.plugin.AdsWrapper.addAdView(windowManager, adView, curPos);
-				org.cocos2dx.plugin.AdsWrapper.onAdsResult(AdstirCocos.this, org.cocos2dx.plugin.AdsWrapper.RESULT_CODE_AdsReceived, "Ads request received success!");
+				org.cocos2dx.plugin.AdsWrapper.addAdView(windowManager, adstir, curPos);
+				org.cocos2dx.plugin.AdsWrapper.onAdsResult(AdstirCocos2dx.this, org.cocos2dx.plugin.AdsWrapper.RESULT_CODE_AdsReceived, "Ads request received success!");
 			}
 		});
 	}
@@ -128,9 +126,8 @@ public class AdstirCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 				}
 
 				if (adstir != null) {
-					windowManager.removeView(adView);
-					adView.destroy();
-					adView = null;
+					windowManager.removeView(adstir);
+					adstir = null;
 				}
 			}
 		});
