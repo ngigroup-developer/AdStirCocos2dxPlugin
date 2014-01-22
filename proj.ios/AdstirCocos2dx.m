@@ -46,10 +46,10 @@
 	self.spot = (NSString*) [devInfo objectForKey:@"spot"];
 }
 
-- (void) showAds: (NSMutableDictionary*) info position:(int) pos
+- (void) showAds: (NSMutableDictionary*)info position:(int) pos
 {
-	int width = [[devInfo objectForKey:@"width"]intValue];
-	int height = [[devInfo objectForKey:@"height"]intValue];
+	int width = [[info objectForKey:@"width"]intValue];
+	int height = [[info objectForKey:@"height"]intValue];
 	[self showBanner:pos width:width height:height];
 }
 
@@ -74,23 +74,28 @@
 - (void) setDebugMode: (BOOL) isDebugMode
 {
 	LOG(@"AdstirCocos2dx not support isDebugMode");
-	return NO;
 }
 
 - (NSString*) getSDKVersion
 {
+	LOG(@"AdstirCocos2dx not support getSDKVersion");
 	return @"AdstirCocos2dx not support getSDKVersion";
 }
 
 - (NSString*) getPluginVersion
 {
+	LOG(@"AdstirCocos2dx not support getPluginVersion");
 	return @"AdstirCocos2dx not support getPluginVersion";
 }
 
 - (void) showBanner:(int)pos width:(int)width height:(int)height
 {
 	if (self.media == nil || self.spot == nil) {
-		LOG(@"configDeveloperInfo() not correctly invoked in Admob!");
+		LOG(@"configDeveloperInfo() not correctly invoked in AdstirCocos2dx!");
+		return;
+	}
+	if (width == 0 || height == 0) {
+		LOG(@"showAds() not correctly invoked in AdstirCocos2dx!");
 		return;
 	}
 	if (self.adstir != nil) {
