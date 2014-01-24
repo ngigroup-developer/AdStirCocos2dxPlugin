@@ -10,13 +10,14 @@ Android
 * cocos2d/plugin/tools/publish.sh
 
 * cocos2d/plugin/tools/gameDevGuide.sh
-* vi Classes/HelloWorldScene.h
+* vi Classes/HelloWorldScene.h  
 edit code
 
 
-    //header
+    a//header
     #include "ProtocolAds.h"
     #include "PluginManager.h"
+
 
     //class HelloWorld
     private:
@@ -25,29 +26,28 @@ edit code
         cocos2d::plugin::TAdsInfo adInfo;
 
 
-vi Classes/HelloWorldScene.cpp
-###
-#include "PluginJniHelper.h"
-jint JNI_OnLoad( JavaVM* vm, void* reserved )
-{
-	cocos2d::PluginJniHelper::setJavaVM(vm); // for plugins
-	return JNI_VERSION_1_4;
-}
-###
-    _adstir = dynamic_cast<cocos2d::plugin::ProtocolAds*>(cocos2d::plugin::PluginManager::getInstance()->loadPlugin("AdstirCocos2dx"));
-    devInfo["media"] = "MEDIA-228eaf21";
-    devInfo["spot"] = "9";
-    CCLOG("configDeveloperInfo s");
-    _adstir->configDeveloperInfo(devInfo);
-    CCLOG("configDeveloperInfo e");
-    adInfo["width"] = "320";
-    adInfo["height"] = "50";
-    _adstir->showAds(adInfo, cocos2d::plugin::ProtocolAds::AdsPos::kPosCenter);
-###
-    _adstir->hideAds(adInfo);
-    cocos2d::plugin::PluginManager::getInstance()->unloadPlugin("AdstirCocos2dx");
-    _adstir = NULL;
-###
+* vi Classes/HelloWorldScene.cpp
+
+    #include "PluginJniHelper.h"
+    jint JNI_OnLoad( JavaVM* vm, void* reserved )
+    {
+    	cocos2d::PluginJniHelper::setJavaVM(vm); // for plugins
+    	return JNI_VERSION_1_4;
+    }
+    
+        _adstir = dynamic_cast<cocos2d::plugin::ProtocolAds*>(cocos2d::plugin::PluginManager::getInstance()->loadPlugin("AdstirCocos2dx"));
+        devInfo["media"] = "MEDIA-228eaf21";
+        devInfo["spot"] = "9";
+        CCLOG("configDeveloperInfo s");
+        _adstir->configDeveloperInfo(devInfo);
+        CCLOG("configDeveloperInfo e");
+        adInfo["width"] = "320";
+        adInfo["height"] = "50";
+        _adstir->showAds(adInfo, cocos2d::plugin::ProtocolAds::AdsPos::kPosCenter);
+    
+        _adstir->hideAds(adInfo);
+        cocos2d::plugin::PluginManager::getInstance()->unloadPlugin("AdstirCocos2dx");
+        _adstir = NULL;
 
 
 cd proj.android/
