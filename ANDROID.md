@@ -9,11 +9,11 @@ Android
 * vi cocos2d/plugin/tools/config.sh
 * cocos2d/plugin/tools/publish.sh
 
+Android
+===================
 
 * cocos2d/plugin/tools/gameDevGuide.sh
 * vi Classes/HelloWorldScene.h  
-edit code
-
 
 
         a//header
