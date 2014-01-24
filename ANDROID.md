@@ -10,9 +10,9 @@ Android
 * cocos2d/plugin/tools/publish.sh
 
 * cocos2d/plugin/tools/gameDevGuide.sh
-
 * vi Classes/HelloWorldScene.h
 edit code
+
 
     //header
     #include "ProtocolAds.h"
