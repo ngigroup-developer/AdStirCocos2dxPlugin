@@ -12,19 +12,19 @@ Android
 * cocos2d/plugin/tools/gameDevGuide.sh
 * vi Classes/HelloWorldScene.h  
 edit code
-
-
-    a//header
-    #include "ProtocolAds.h"
-    #include "PluginManager.h"
-
-
-    //class HelloWorld
-    private:
-        cocos2d::plugin::ProtocolAds* _adstir;
-        cocos2d::plugin::TAdsDeveloperInfo devInfo;
-        cocos2d::plugin::TAdsInfo adInfo;
-
+    
+    
+        a//header
+        #include "ProtocolAds.h"
+        #include "PluginManager.h"
+    
+    
+        //class HelloWorld
+        private:
+            cocos2d::plugin::ProtocolAds* _adstir;
+            cocos2d::plugin::TAdsDeveloperInfo devInfo;
+            cocos2d::plugin::TAdsInfo adInfo;
+    
 
 * vi Classes/HelloWorldScene.cpp
 
