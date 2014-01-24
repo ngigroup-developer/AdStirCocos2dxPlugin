@@ -1,42 +1,43 @@
-Android
+Plugin
 ===================
 
-* cocos2d-x-3.0beta/tools/project-creator/create_project.py -n mygameee -k com.aaa.com.sss -l cpp -p .
-* cd mygameee
-* git clone https://github.com/ngigroup-developer/AdStirCocos2dxPlugin.git cocos2d/plugin/plugins/adstir
-* cp /........../AdStirSdkiOS/1.3.0/* cocos2d/plugin/plugins/adstir/proj.ios/adstir/
-* cp /........../AdStirSdkAndroid/v1.3.1/adstirwebview.jar cocos2d/plugin/plugins/adstir/proj.android/sdk/
-* vi cocos2d/plugin/tools/config.sh
-* cocos2d/plugin/tools/publish.sh
+1. cocos2d-x-3.0beta/tools/project-creator/create_project.py -n mygameee -k com.aaa.com.sss -l cpp -p .
 
-Android
+2. cd mygameee
+
+3. git clone https://github.com/ngigroup-developer/AdStirCocos2dxPlugin.git cocos2d/plugin/plugins/adstir
+
+4. cp /........../AdStirSdkiOS/1.3.0/* cocos2d/plugin/plugins/adstir/proj.ios/adstir/
+
+5. cp /........../AdStirSdkAndroid/v1.3.1/adstirwebview.jar cocos2d/plugin/plugins/adstir/proj.android/sdk/
+
+6. vi cocos2d/plugin/tools/config.sh
+
+7. cocos2d/plugin/tools/publish.sh
+
+Android / iOS
 ===================
 
-* cocos2d/plugin/tools/gameDevGuide.sh
-* vi Classes/HelloWorldScene.h  
+1. cocos2d/plugin/tools/gameDevGuide.sh
 
+2. vi Classes/HelloWorldScene.h
 
-        a//header
+        // header
         #include "ProtocolAds.h"
         #include "PluginManager.h"
-    
-    
-        //class HelloWorld
+
+        // HelloWorld
         private:
             cocos2d::plugin::ProtocolAds* _adstir;
             cocos2d::plugin::TAdsDeveloperInfo devInfo;
             cocos2d::plugin::TAdsInfo adInfo;
-    
 
-* vi Classes/HelloWorldScene.cpp
+3. vi Classes/HelloWorldScene.cpp
 
-    #include "PluginJniHelper.h"
-    jint JNI_OnLoad( JavaVM* vm, void* reserved )
-    {
-    	cocos2d::PluginJniHelper::setJavaVM(vm); // for plugins
-    	return JNI_VERSION_1_4;
-    }
-    
+        // header
+        #include "PluginJniHelper.h"
+        
+        // HelloWorld::init
         _adstir = dynamic_cast<cocos2d::plugin::ProtocolAds*>(cocos2d::plugin::PluginManager::getInstance()->loadPlugin("AdstirCocos2dx"));
         devInfo["media"] = "MEDIA-228eaf21";
         devInfo["spot"] = "9";
@@ -46,27 +47,43 @@ Android
         adInfo["width"] = "320";
         adInfo["height"] = "50";
         _adstir->showAds(adInfo, cocos2d::plugin::ProtocolAds::AdsPos::kPosCenter);
-    
+        
+        // HelloWorld::menuCloseCallback
         _adstir->hideAds(adInfo);
         cocos2d::plugin::PluginManager::getInstance()->unloadPlugin("AdstirCocos2dx");
         _adstir = NULL;
 
+Android only
+===================
 
-cd proj.android/
+1. cd proj.android/
 
-vi jni/Android.mk
-###
-$(call import-add-path,/home/reiji-terasaka/git/cocos/mygameee/cocos2d/plugin/publish)
-###
+2. vi jni/Android.mk
 
-cp ../cocos2d/plugin/publish/protocols/android/*.jar libs
-cp ../cocos2d/plugin/publish/plugins/adstir/android/* libs
+        $(call import-module,plugin/publish/protocols/android)
 
-./build_native.py
-android update project -p . -t android-17
-android update project -p ../cocos2d/cocos/2d/platform/android/java/ -t android-17
-ant debug
-ant installd
+3. vi jni/hellocpp/main.cpp
+
+        #include "PluginJniHelper.h"
+        #include "PluginUtils.h"
+
+        PluginJniHelper::setJavaVM(app->activity->vm);
+        PluginJniHelper::setClassLoaderFrom(app->activity->clazz);
+        cocos2d::plugin::PluginUtils::initPluginWrapper(app);
+
+4. cp ../cocos2d/plugin/publish/protocols/android/*.jar libs
+
+5. cp ../cocos2d/plugin/publish/plugins/adstir/android/* libs
+
+6. ./build_native.py
+
+7. android update project -p . -t android-17
+
+8. android update project -p ../cocos2d/cocos/2d/platform/android/java/ -t android-17
+
+9. ant debug
+
+10. ant installd
 
 
 
