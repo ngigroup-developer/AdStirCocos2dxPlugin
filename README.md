@@ -27,9 +27,6 @@ Android / iOS
 
 2. vi Classes/HelloWorldScene.cpp
 
-        // header
-        #include "PluginJniHelper.h"
-        
         // HelloWorld::init
         _adstir = dynamic_cast<cocos2d::plugin::ProtocolAds*>(cocos2d::plugin::PluginManager::getInstance()->loadPlugin("AdstirCocos2dx"));
         devInfo["media"] = "MEDIA-ID";
