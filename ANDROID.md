@@ -1,25 +1,17 @@
-Plugin
+Make project
 ===================
 
 1. cocos2d-x-3.0beta/tools/project-creator/create_project.py -n mygameee -k com.aaa.com.sss -l cpp -p .
+
+Download plugin
+===================
 
 2. cd mygameee
 
 3. git clone https://github.com/ngigroup-developer/AdStirCocos2dxPlugin.git cocos2d/plugin/plugins/adstir
 
-4. cp /........../AdStirSdkiOS/1.3.0/* cocos2d/plugin/plugins/adstir/proj.ios/adstir/
-
-5. cp /........../AdStirSdkAndroid/v1.3.1/adstirwebview.jar cocos2d/plugin/plugins/adstir/proj.android/sdk/
-
-6. vi cocos2d/plugin/tools/config.sh  
-   Add "adstir" to ALL_PLUGINS
-
-7. cocos2d/plugin/tools/publish.sh
-
 Android / iOS
 ===================
-
-1. cocos2d/plugin/tools/gameDevGuide.sh
 
 2. vi Classes/HelloWorldScene.h
 
@@ -57,6 +49,15 @@ Android / iOS
 Android only
 ===================
 
+5. cp /........../AdStirSdkAndroid/v1.3.1/adstirwebview.jar cocos2d/plugin/plugins/adstir/proj.android/sdk/
+
+6. vi cocos2d/plugin/tools/config.sh  
+   Add "adstir" to ALL_PLUGINS
+
+7. cocos2d/plugin/tools/publish.sh
+
+1. cocos2d/plugin/tools/gameDevGuide.sh
+
 1. cd proj.android/
 
 2. vi jni/Android.mk
@@ -87,6 +88,23 @@ Android only
 10. ant debug
 
 11. ant installd
+
+
+iOS only
+===================
+
+1. cp /........../AdStirSdkiOS/1.3.0/* cocos2d/plugin/plugins/adstir/proj.ios/adstir/
+
+2. open proj.ios_mac/mygameee.xcodeproj
+   1. Projectに"cocos2d/plugin/protocols/proj.ios/PluginProtocol.xcodeproj"を追加
+   2. Projectに"cocos2d/plugin/plugins/adstir/proj.ios/AdstirCocos2dx.xcodeproj"を追加
+   3. "Link Binary With Libraries"に"libAdstirCocos2dx.a"を追加
+   4. "Link Binary With Libraries"に"libPluginProtocol.a"を追加
+   5. "User Herder Search Paths"に"../cocos2d/plugin/protocols/include"を追加
+   6. "Other Linker Flags"に"-ObjC"を追加
+
+3. Run app
+
 
 
 
