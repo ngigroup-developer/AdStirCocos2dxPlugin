@@ -1,12 +1,12 @@
 Make project
 ===================
 
-1. cocos2d-x-3.0beta/tools/project-creator/create_project.py -n mygameee -k com.aaa.com.sss -l cpp -p .
+1. cocos2d-x-3.0beta/tools/project-creator/create_project.py -n projectname -k com.aaa.com.sss -l cpp -p .
 
 Download plugin
 ===================
 
-1. cd mygameee
+1. cd projectname
 
 2. git clone https://github.com/ngigroup-developer/AdStirCocos2dxPlugin.git cocos2d/plugin/plugins/adstir
 
@@ -95,7 +95,7 @@ iOS only
 
 1. cp /........../AdStirSdkiOS/1.3.0/* cocos2d/plugin/plugins/adstir/proj.ios/adstir/
 
-2. open proj.ios_mac/mygameee.xcodeproj
+2. open proj.ios_mac/projectname.xcodeproj
    1. Projectに"cocos2d/plugin/protocols/proj.ios/PluginProtocol.xcodeproj"を追加
    2. Projectに"cocos2d/plugin/plugins/adstir/proj.ios/AdstirCocos2dx.xcodeproj"を追加
    3. "Link Binary With Libraries"に"libAdstirCocos2dx.a"を追加
@@ -104,13 +104,5 @@ iOS only
    6. "Other Linker Flags"に"-ObjC"を追加
 
 3. Run app
-
-
-
-
-
-
-
-
 
 
