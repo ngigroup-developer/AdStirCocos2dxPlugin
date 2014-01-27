@@ -63,9 +63,11 @@ Android only
 
 7. vi jni/hellocpp/main.cpp
 
+        // header
         #include "PluginJniHelper.h"
         #include "PluginUtils.h"
-
+        
+        // cocos_android_app_init
         PluginJniHelper::setJavaVM(app->activity->vm);
         PluginJniHelper::setClassLoaderFrom(app->activity->clazz);
         cocos2d::plugin::PluginUtils::initPluginWrapper(app);
