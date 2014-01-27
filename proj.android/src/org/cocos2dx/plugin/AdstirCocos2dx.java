@@ -33,6 +33,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.WindowManager;
+import android.view.ViewGroup;
+import android.util.TypedValue;
+import android.util.DisplayMetrics;
 
 public class AdstirCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 	private static String TAG = "AdstirCocos2dx";
@@ -41,7 +44,7 @@ public class AdstirCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 	private String mMedia = null;
 	private int mSpot = 0;
 
-	private com.ad_stir.webview.AdstirWebView adstir = null;
+	private android.widget.FrameLayout fl = null;
 
 	public AdstirCocos2dx(Context context) {
 		mContext = (Activity) context;
@@ -93,7 +96,7 @@ public class AdstirCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 		}
 	}
 
-	private void showBannerAd(int width, int height, int pos) {
+	private void showBannerAd(final int width, final int height, int pos) {
 		final int curPos = pos;
 		org.cocos2dx.plugin.PluginWrapper.runOnMainThread(new Runnable() {
 			@Override
@@ -103,14 +106,20 @@ public class AdstirCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 					return;
 				}
 
-				if (adstir != null) {
-					windowManager.removeView(adstir);
-					adstir = null;
+				if (fl != null) {
+					windowManager.removeView(fl);
+					fl = null;
 				}
 
-				adstir = new com.ad_stir.webview.AdstirWebView(mContext,mMedia,mSpot);
+				DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
+				int wdp = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, width, metrics);
+				int hdp = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, height, metrics);
 				
-				org.cocos2dx.plugin.AdsWrapper.addAdView(windowManager, adstir, curPos);
+				fl = new android.widget.FrameLayout(mContext);
+				com.ad_stir.webview.AdstirWebView adstir = new com.ad_stir.webview.AdstirWebView(mContext,mMedia,mSpot);
+				adstir.setLayoutParams(new android.widget.FrameLayout.LayoutParams(wdp, hdp));
+				fl.addView(adstir);
+				org.cocos2dx.plugin.AdsWrapper.addAdView(windowManager, fl, curPos);
 				org.cocos2dx.plugin.AdsWrapper.onAdsResult(AdstirCocos2dx.this, org.cocos2dx.plugin.AdsWrapper.RESULT_CODE_AdsReceived, "Ads request received success!");
 			}
 		});
@@ -125,9 +134,9 @@ public class AdstirCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 					return;
 				}
 
-				if (adstir != null) {
-					windowManager.removeView(adstir);
-					adstir = null;
+				if (fl != null) {
+					windowManager.removeView(fl);
+					fl = null;
 				}
 			}
 		});
