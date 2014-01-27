@@ -11,7 +11,8 @@ Plugin
 
 5. cp /........../AdStirSdkAndroid/v1.3.1/adstirwebview.jar cocos2d/plugin/plugins/adstir/proj.android/sdk/
 
-6. vi cocos2d/plugin/tools/config.sh
+6. vi cocos2d/plugin/tools/config.sh  
+   Add "adstir" to ALL_PLUGINS
 
 7. cocos2d/plugin/tools/publish.sh
 
@@ -39,8 +40,8 @@ Android / iOS
         
         // HelloWorld::init
         _adstir = dynamic_cast<cocos2d::plugin::ProtocolAds*>(cocos2d::plugin::PluginManager::getInstance()->loadPlugin("AdstirCocos2dx"));
-        devInfo["media"] = "MEDIA-228eaf21";
-        devInfo["spot"] = "9";
+        devInfo["media"] = "MEDIA-ID";
+        devInfo["spot"] = "SPOT-NO";
         CCLOG("configDeveloperInfo s");
         _adstir->configDeveloperInfo(devInfo);
         CCLOG("configDeveloperInfo e");
@@ -71,19 +72,21 @@ Android only
         PluginJniHelper::setClassLoaderFrom(app->activity->clazz);
         cocos2d::plugin::PluginUtils::initPluginWrapper(app);
 
-4. cp ../cocos2d/plugin/publish/protocols/android/*.jar libs
+4. mkdir -p libs
 
-5. cp ../cocos2d/plugin/publish/plugins/adstir/android/* libs
+5. cp ../cocos2d/plugin/publish/protocols/android/*.jar libs
 
-6. ./build_native.py
+6. cp ../cocos2d/plugin/publish/plugins/adstir/android/*.jar libs
 
-7. android update project -p . -t android-17
+7. ./build_native.py
 
-8. android update project -p ../cocos2d/cocos/2d/platform/android/java/ -t android-17
+8. android update project -p . -t android-19
 
-9. ant debug
+9. android update project -p ../cocos2d/cocos/2d/platform/android/java/ -t android-19
 
-10. ant installd
+10. ant debug
+
+11. ant installd
 
 
 
