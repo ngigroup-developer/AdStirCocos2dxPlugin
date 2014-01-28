@@ -1,18 +1,17 @@
 Required environment
 ===================
 1. Android (Mac)
-    * Python or Command Line Tools for Xcode
+    * Command Line Tools for Xcode
     * gawk
     * Android SDK
     * Apache Ant
-1. Android (Linux / Cygwin)
+2. Android (Linux / Cygwin)
     * Bash
     * Python
     * gawk
     * Android SDK
     * Apache Ant
-2. iOS
-    * Mac OS X
+3. iOS (Mac only)
     * Xcode
 
 Make project
