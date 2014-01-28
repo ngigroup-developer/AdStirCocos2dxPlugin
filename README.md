@@ -95,12 +95,13 @@ iOS only
 1. cp /........../AdStirSdkiOS/1.3.0/* cocos2d/plugin/plugins/adstir/proj.ios/adstir/
 
 2. open proj.ios_mac/projectname.xcodeproj
-   1. Projectに"cocos2d/plugin/protocols/proj.ios/PluginProtocol.xcodeproj"を追加
-   2. Projectに"cocos2d/plugin/plugins/adstir/proj.ios/AdstirCocos2dx.xcodeproj"を追加
-   3. "Link Binary With Libraries"に"libAdstirCocos2dx.a"を追加
-   4. "Link Binary With Libraries"に"libPluginProtocol.a"を追加
-   5. "User Herder Search Paths"に"../cocos2d/plugin/protocols/include"を追加
-   6. "Other Linker Flags"に"-ObjC"を追加
+   1. Add "cocos2d/plugin/protocols/proj.ios/PluginProtocol.xcodeproj" to Project
+   2. Add "cocos2d/plugin/plugins/adstir/proj.ios/AdstirCocos2dx.xcodeproj" to Project
+   3. Add "libAdstirCocos2dx.a" to "Link Binary With Libraries"
+   4. Add "libPluginProtocol.a" to "Link Binary With Libraries"
+   5. Add "AdSupport.framework" to "Link Binary With Libraries"
+   6. Add "../cocos2d/plugin/protocols/include" to "User Header Search Paths"
+   7. Add "-ObjC" to "Other Linker Flags"
 
 3. Run app
 
