@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961409661B05C49400A22850 /* AdstirAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961409651B05C49400A22850 /* AdstirAds.framework */; };
 		FADC44AB176EA82000B2D5ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC44AA176EA82000B2D5ED /* Foundation.framework */; };
-		FADC44C5176EA84500B2D5ED /* libAdstirWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC44C2176EA84500B2D5ED /* libAdstirWebView.a */; };
 		FADC44C6176EA84500B2D5ED /* AdstirCocos2dx.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC44C4176EA84500B2D5ED /* AdstirCocos2dx.m */; };
 /* End PBXBuildFile section */
 
@@ -25,10 +25,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		961409651B05C49400A22850 /* AdstirAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdstirAds.framework; sourceTree = "<group>"; };
 		FADC44A7176EA82000B2D5ED /* libAdstirCocos2dx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAdstirCocos2dx.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADC44AA176EA82000B2D5ED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FADC44B9176EA84500B2D5ED /* AdstirWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdstirWebView.h; sourceTree = "<group>"; };
-		FADC44C2176EA84500B2D5ED /* libAdstirWebView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdstirWebView.a; sourceTree = "<group>"; };
 		FADC44C3176EA84500B2D5ED /* AdstirCocos2dx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdstirCocos2dx.h; sourceTree = "<group>"; };
 		FADC44C4176EA84500B2D5ED /* AdstirCocos2dx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdstirCocos2dx.m; sourceTree = "<group>"; };
 		FADC44C7176EA85F00B2D5ED /* AdstirCocos2dx-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AdstirCocos2dx-Prefix.pch"; sourceTree = "<group>"; };
@@ -39,8 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961409661B05C49400A22850 /* AdstirAds.framework in Frameworks */,
 				FADC44AB176EA82000B2D5ED /* Foundation.framework in Frameworks */,
-				FADC44C5176EA84500B2D5ED /* libAdstirWebView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,8 +77,7 @@
 		FADC44B8176EA84500B2D5ED /* adstir */ = {
 			isa = PBXGroup;
 			children = (
-				FADC44B9176EA84500B2D5ED /* AdstirWebView.h */,
-				FADC44C2176EA84500B2D5ED /* libAdstirWebView.a */,
+				961409651B05C49400A22850 /* AdstirAds.framework */,
 			);
 			path = adstir;
 			sourceTree = "<group>";
@@ -199,6 +197,10 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				DSTROOT = /tmp/AdstirCocos2dx.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/adstir",
+				);
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AdstirCocos2dx-Prefix.pch";
@@ -219,6 +221,10 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				DSTROOT = /tmp/AdstirCocos2dx.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/adstir",
+				);
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AdstirCocos2dx-Prefix.pch";

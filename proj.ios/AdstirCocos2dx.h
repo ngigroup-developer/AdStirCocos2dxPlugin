@@ -24,7 +24,7 @@
 
 #import <Foundation/Foundation.h>
 #import "InterfaceAds.h"
-#import "AdstirWebView.h"
+#import <AdstirAds/AdstirAds.h>
 
 @interface AdstirCocos2dx : NSObject <InterfaceAds>
 {
@@ -32,8 +32,8 @@
 
 @property BOOL debug;
 @property (copy, nonatomic) NSString* media;
-@property (copy, nonatomic) NSString* spot;
-@property (retain, nonatomic) AdstirWebView* adstir;
+@property (assign, nonatomic) int spot;
+@property (retain, nonatomic) AdstirMraidView* adstir;
 
 /**
  interfaces from InterfaceAds

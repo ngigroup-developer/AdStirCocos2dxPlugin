@@ -116,7 +116,7 @@ public class AdstirCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 				int hdp = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, height, metrics);
 				
 				fl = new android.widget.FrameLayout(mContext);
-				com.ad_stir.webview.AdstirWebView adstir = new com.ad_stir.webview.AdstirWebView(mContext,mMedia,mSpot);
+				com.ad_stir.webview.AdstirMraidView adstir = new com.ad_stir.webview.AdstirMraidView(mContext,mMedia,mSpot,new com.ad_stir.webview.AdstirMraidView.AdSize(width,height));
 				adstir.setLayoutParams(new android.widget.FrameLayout.LayoutParams(wdp, hdp));
 				fl.addView(adstir);
 				org.cocos2dx.plugin.AdsWrapper.addAdView(windowManager, fl, curPos);

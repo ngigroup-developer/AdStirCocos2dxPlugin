@@ -34,7 +34,7 @@
 {
 	self.adstir = nil;
 	self.media = nil;
-	self.spot = nil;
+	self.spot = 0;
 	[super dealloc];
 }
 
@@ -43,7 +43,7 @@
 - (void) configDeveloperInfo: (NSMutableDictionary*) devInfo
 {
 	self.media = (NSString*) [devInfo objectForKey:@"media"];
-	self.spot = (NSString*) [devInfo objectForKey:@"spot"];
+	self.spot = [(NSString*) [devInfo objectForKey:@"spot"] intValue];
 }
 
 - (void) showAds: (NSMutableDictionary*)info position:(int) pos
@@ -90,7 +90,7 @@
 
 - (void) showBanner:(int)pos width:(int)width height:(int)height
 {
-	if (self.media == nil || self.spot == nil) {
+	if (self.media == nil || self.spot == 0) {
 		LOG(@"configDeveloperInfo() not correctly invoked in AdstirCocos2dx!");
 		return;
 	}
@@ -102,7 +102,17 @@
 		[self.adstir removeFromSuperview];
 		self.adstir = nil;
 	}
-	self.adstir = [[[AdstirWebView alloc]initWithFrame:CGRectMake(0, 0, width, height) media:self.media spot:self.spot]autorelease];
+    AdstirAdSize size;
+    if( width == 320 && height == 50 ){
+        size = kAdstirAdSize320x50;
+    } else if( width == 320 && height == 100 ){
+        size = kAdstirAdSize320x100;
+    } else if( width == 300 && height == 250 ){
+        size = kAdstirAdSize300x250;
+    } else {
+        size = AdstirSizeFromCGSize(CGSizeMake(width,height));
+    }
+    self.adstir = [[[AdstirMraidView alloc] initWithAdSize:size origin:CGPointZero media:self.media spot:self.spot] autorelease];
 	[AdsWrapper addAdView:self.adstir atPos:pos];
 	[AdsWrapper onAdsResult:self withRet:kAdsReceived withMsg:@"Ads request received success!"];
 }
