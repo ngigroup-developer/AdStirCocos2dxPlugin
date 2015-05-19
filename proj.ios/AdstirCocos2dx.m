@@ -23,10 +23,37 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#import "AdstirCocos2dx.h"
+#import <Foundation/Foundation.h>
+#import "InterfaceAds.h"
+#import <AdstirAds/AdstirAds.h>
 #import "AdsWrapper.h"
 
 #define LOG(...) NSLog(__VA_ARGS__);
+
+
+@interface AdstirCocos2dx : NSObject <InterfaceAds>
+{
+}
+
+@property BOOL debug;
+@property (copy, nonatomic) NSString* media;
+@property (assign, nonatomic) int spot;
+@property (retain, nonatomic) AdstirMraidView* adstir;
+
+/**
+ interfaces from InterfaceAds
+ */
+- (void) configDeveloperInfo: (NSMutableDictionary*) devInfo;
+- (void) showAds: (NSMutableDictionary*) info position:(int) pos;
+- (void) hideAds: (NSMutableDictionary*) info;
+- (void) queryPoints;
+- (void) spendPoints: (int) points;
+- (void) setDebugMode: (BOOL) isDebugMode;
+- (NSString*) getSDKVersion;
+- (NSString*) getPluginVersion;
+
+@end
+
 
 @implementation AdstirCocos2dx
 
