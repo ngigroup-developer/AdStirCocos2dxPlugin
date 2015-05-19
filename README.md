@@ -72,9 +72,11 @@ Android only
     1. input /......./ProjectPath/ProjectName/proj.android
 
 5. proj.android/jni/Android.mk
+
         $(call import-module,***plugin/publish***/protocols/android)
 
 6. proj.android/jni/hellocpp/main.cpp
+
         // header
         #include "PluginJniHelper.h"
         
@@ -84,6 +86,7 @@ Android only
         PluginJniHelper::setJavaVM(vm);
 
 7. proj.android/project.properties
+
         android.library.reference.2=../cocos2d/plugin/protocols/proj.android
         android.library.reference.3=../cocos2d/plugin/plugins/adstir/proj.android
 
