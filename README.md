@@ -73,6 +73,8 @@ Android / iOS
         adInfo["height"] = "50";
         adInfo["center"] = "true";
         adInfo["slot"] = "2";
+        //adInfo["x"] = "0.0"; // 0.0~1.0
+        //adInfo["y"] = "0.0"; // 0.0~1.0
         _adstir->showAds(adInfo, cocos2d::plugin::ProtocolAds::AdsPos::kPosCenter);
         ```
         ```
