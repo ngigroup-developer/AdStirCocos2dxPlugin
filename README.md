@@ -43,26 +43,7 @@ Android / iOS
     ```
 
 2. Classes/HelloWorldScene.cpp
-
-    ```
-    // HelloWorld::init
-    _adstir = (cocos2d::plugin::ProtocolAds*) cocos2d::plugin::PluginManager::getInstance()->loadPlugin("AdstirCocos2dx");
-    devInfo["media"] = "MEDIA-ID";
-    devInfo["spot"] = "SPOT-NO";
-    _adstir->configDeveloperInfo(devInfo);
-    adInfo["width"] = "320";
-    adInfo["height"] = "50";
-    _adstir->showAds(adInfo, cocos2d::plugin::ProtocolAds::AdsPos::kPosCenter);
-    ```
     * Banner
-
-        ```
-        // HelloWorld::menuCloseCallback
-        _adstir->hideAds(adInfo);
-        cocos2d::plugin::PluginManager::getInstance()->unloadPlugin("AdstirCocos2dx");
-        _adstir = NULL;
-        ```
-    * Icon
 
         ```
         // HelloWorld::init
@@ -78,6 +59,26 @@ Android / iOS
         // HelloWorld::menuCloseCallback
         _adstir->hideAds(adInfo);
         cocos2d::plugin::PluginManager::getInstance()->unloadPlugin("AdstirCocos2dx");
+        _adstir = NULL;
+        ```
+    * Icon
+
+        ```
+        // HelloWorld::init
+        _adstir = (cocos2d::plugin::ProtocolAds*) cocos2d::plugin::PluginManager::getInstance()->loadPlugin("AdstirIconCocos2dx");
+        devInfo["media"] = "MEDIA-ID";
+        devInfo["spot"] = "SPOT-NO";
+        _adstir->configDeveloperInfo(devInfo);
+        adInfo["width"] = "320";
+        adInfo["height"] = "50";
+        adInfo["center"] = "true";
+        adInfo["slot"] = "2";
+        _adstir->showAds(adInfo, cocos2d::plugin::ProtocolAds::AdsPos::kPosCenter);
+        ```
+        ```
+        // HelloWorld::menuCloseCallback
+        _adstir->hideAds(adInfo);
+        cocos2d::plugin::PluginManager::getInstance()->unloadPlugin("AdstirIconCocos2dx");
         _adstir = NULL;
         ```
 
