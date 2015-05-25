@@ -95,7 +95,11 @@
     int height = [[info objectForKey:@"height"]intValue];
     int slot = [[info objectForKey:@"slot"]intValue];
     bool center = [[info objectForKey:@"center"] boolValue];
-    [self showBanner:pos width:width height:height slot:slot center:center];
+    float x = 0.0;
+    if([info objectForKey:@"x"]) x = [[info objectForKey:@"x"] floatValue];
+    float y = 0.0;
+    if([info objectForKey:@"y"]) y = [[info objectForKey:@"y"] floatValue];
+    [self showBanner:pos width:width height:height slot:slot center:center x:x y:y];
 }
 
 - (void) hideAds: (NSMutableDictionary*) info
@@ -133,7 +137,7 @@
     return @"AdstirCocos2dx not support getPluginVersion";
 }
 
-- (void) showBanner:(int)pos width:(int)width height:(int)height slot:(int)slot center:(bool)center
+- (void) showBanner:(int)pos width:(int)width height:(int)height slot:(int)slot center:(bool)center x:(float)x y:(float)y
 {
     if (self.media == nil || self.spot == 0) {
         LOG(@"configDeveloperInfo() not correctly invoked in AdstirCocos2dx!");
@@ -154,6 +158,17 @@
     self.adstir.slot = slot;
     self.adstir.isCenter = center;
     [AdsWrapper addAdView:self.adstir atPos:pos];
+    if(x != 0.0 || y != 0.0){
+        [AdsWrapper addAdView:self.adstir atPos:kPosBottomRight];
+        CGRect rect = self.adstir.frame;
+        rect.origin.x = rect.origin.x + rect.size.width;
+        rect.origin.y = rect.origin.y + rect.size.height;
+        rect.origin.x = x * rect.origin.x;
+        rect.origin.y = y * rect.origin.y;
+        self.adstir.frame= rect;
+    }else{
+        [AdsWrapper addAdView:self.adstir atPos:pos];
+    }
     [AdsWrapper onAdsResult:self withRet:kAdsReceived withMsg:@"Ads request received success!"];
 }
 

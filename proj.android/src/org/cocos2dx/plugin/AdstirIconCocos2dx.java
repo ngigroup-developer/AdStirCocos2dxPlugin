@@ -64,9 +64,9 @@ public class AdstirIconCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 	@Override
 	public void configDeveloperInfo(Hashtable<String, String> devInfo) {
 		try {
-            mMedia = devInfo.get("media");
-            mSpot = Integer.parseInt(devInfo.get("spot"));
-            mSpot = Integer.parseInt(devInfo.get("spot"));
+			mMedia = devInfo.get("media");
+			mSpot = Integer.parseInt(devInfo.get("spot"));
+			mSpot = Integer.parseInt(devInfo.get("spot"));
 		} catch (Exception e) {
 			android.util.Log.e(TAG,"Exception",e);
 		}
@@ -75,11 +75,15 @@ public class AdstirIconCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 	@Override
 	public void showAds(Hashtable<String, String> info, int pos) {
 		try {
-            int width = Integer.parseInt(info.get("width"));
-            int height = Integer.parseInt(info.get("height"));
-            int slot = Integer.parseInt(info.get("slot"));
-            boolean center = Boolean.parseBoolean(info.get("center"));
-			this.showBannerAd(width,height,pos,slot,center);
+			int width = Integer.parseInt(info.get("width"));
+			int height = Integer.parseInt(info.get("height"));
+			int slot = Integer.parseInt(info.get("slot"));
+			boolean center = Boolean.parseBoolean(info.get("center"));
+			float x = 0.0f;
+			if(info.containsKey("x")) x = Float.parseFloat(info.get("x"));
+			float y = 0.0f;
+			if(info.containsKey("y")) y = Float.parseFloat(info.get("y"));
+			this.showBannerAd(width,height,pos,slot,center,x,y);
 		} catch (Exception e) {
 			android.util.Log.e(TAG,"Exception",e);
 		}
@@ -99,7 +103,7 @@ public class AdstirIconCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 		}
 	}
 
-	private void showBannerAd(final int width, final int height, final int pos, final int slot, final boolean center) {
+	private void showBannerAd(final int width, final int height, final int pos, final int slot, final boolean center, final float x, final float y) {
 		final int curPos = pos;
 		org.cocos2dx.plugin.PluginWrapper.runOnMainThread(new Runnable() {
 			@Override
@@ -117,15 +121,58 @@ public class AdstirIconCocos2dx implements org.cocos2dx.plugin.InterfaceAds {
 				DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
 				int wdp = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, width, metrics);
 				int hdp = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, height, metrics);
-				
+
 				fl = new android.widget.FrameLayout(mContext);
-                
-                com.ad_stir.icon.IconView adv = new com.ad_stir.icon.IconView(mContext, mMedia, mSpot, slot);
-                adv.setCenter(center);
-                adv.setLayoutParams(new android.widget.FrameLayout.LayoutParams(wdp, hdp));
-                fl.addView(adv);
-                
-				org.cocos2dx.plugin.AdsWrapper.addAdView(windowManager, fl, curPos);
+				com.ad_stir.icon.IconView adv = new com.ad_stir.icon.IconView(mContext, mMedia, mSpot, slot);
+				adv.setCenter(center);
+				adv.setLayoutParams(new android.widget.FrameLayout.LayoutParams(wdp, hdp, android.view.Gravity.TOP | android.view.Gravity.LEFT));
+				fl.addView(adv);
+				
+				if(x == 0.0 && y == 0.0){
+					WindowManager.LayoutParams mLayoutParams = new WindowManager.LayoutParams();
+					mLayoutParams.format = android.graphics.PixelFormat.TRANSLUCENT;
+					mLayoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
+					mLayoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
+					mLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+					mLayoutParams.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+					switch (pos) {
+						case org.cocos2dx.plugin.AdsWrapper.POS_CENTER:
+							mLayoutParams.gravity = android.view.Gravity.CENTER;
+							break;
+						case org.cocos2dx.plugin.AdsWrapper.POS_TOP:
+							mLayoutParams.gravity = android.view.Gravity.TOP;
+							break;
+						case org.cocos2dx.plugin.AdsWrapper.POS_TOP_LEFT:
+							mLayoutParams.gravity = android.view.Gravity.TOP | android.view.Gravity.LEFT;
+							break;
+						case org.cocos2dx.plugin.AdsWrapper.POS_TOP_RIGHT:
+							mLayoutParams.gravity = android.view.Gravity.TOP | android.view.Gravity.RIGHT;
+							break;
+						case org.cocos2dx.plugin.AdsWrapper.POS_BOTTOM:
+							mLayoutParams.gravity = android.view.Gravity.BOTTOM;
+							break;
+						case org.cocos2dx.plugin.AdsWrapper.POS_BOTTOM_LEFT:
+							mLayoutParams.gravity = android.view.Gravity.BOTTOM | android.view.Gravity.LEFT;
+							break;
+						case org.cocos2dx.plugin.AdsWrapper.POS_BOTTOM_RIGHT:
+							mLayoutParams.gravity = android.view.Gravity.BOTTOM | android.view.Gravity.RIGHT;
+							break;
+						default:
+							break;
+					}
+					windowManager.addView(fl, mLayoutParams);
+				}else{
+					WindowManager.LayoutParams mLayoutParams = new WindowManager.LayoutParams();
+					mLayoutParams.format = android.graphics.PixelFormat.TRANSLUCENT;
+					mLayoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
+					mLayoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
+					mLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+					mLayoutParams.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+					mLayoutParams.gravity = android.view.Gravity.TOP | android.view.Gravity.LEFT;
+					mLayoutParams.x = (int) (x * mContext.getWindow().getDecorView().getWidth());
+					mLayoutParams.y = (int) (y * mContext.getWindow().getDecorView().getHeight());
+					windowManager.addView(fl,mLayoutParams);
+				}
 				org.cocos2dx.plugin.AdsWrapper.onAdsResult(AdstirIconCocos2dx.this, org.cocos2dx.plugin.AdsWrapper.RESULT_CODE_AdsReceived, "Ads request received success!");
 			}
 		});
