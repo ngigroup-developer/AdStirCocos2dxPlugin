@@ -65,23 +65,27 @@ Android / iOS
 
         ```
         // HelloWorld::init
-        _adstir = (cocos2d::plugin::ProtocolAds*) cocos2d::plugin::PluginManager::getInstance()->loadPlugin("AdstirIconCocos2dx");
-        devInfo["media"] = "MEDIA-ID";
-        devInfo["spot"] = "SPOT-NO";
-        _adstir->configDeveloperInfo(devInfo);
-        adInfo["width"] = "320";
-        adInfo["height"] = "50";
-        adInfo["center"] = "true";
-        adInfo["slot"] = "2";
-        //adInfo["x"] = "0.0"; // 0.0~1.0
-        //adInfo["y"] = "0.0"; // 0.0~1.0
-        _adstir->showAds(adInfo, cocos2d::plugin::ProtocolAds::AdsPos::kPosCenter);
+        #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+            _adstir = (cocos2d::plugin::ProtocolAds*) cocos2d::plugin::PluginManager::getInstance()->loadPlugin("AdstirIconCocos2dx");
+            devInfo["media"] = "MEDIA-ID";
+            devInfo["spot"] = "SPOT-NO";
+            _adstir->configDeveloperInfo(devInfo);
+            adInfo["width"] = "320";
+            adInfo["height"] = "50";
+            adInfo["center"] = "true";
+            adInfo["slot"] = "2";
+            //adInfo["x"] = "0.0"; // 0.0~1.0
+            //adInfo["y"] = "0.0"; // 0.0~1.0
+            _adstir->showAds(adInfo, cocos2d::plugin::ProtocolAds::AdsPos::kPosCenter);
+        #endif
         ```
         ```
         // HelloWorld::menuCloseCallback
-        _adstir->hideAds(adInfo);
-        cocos2d::plugin::PluginManager::getInstance()->unloadPlugin("AdstirIconCocos2dx");
-        _adstir = NULL;
+        #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+            _adstir->hideAds(adInfo);
+            cocos2d::plugin::PluginManager::getInstance()->unloadPlugin("AdstirIconCocos2dx");
+            _adstir = NULL;
+        #endif
         ```
 
 Android only
